@@ -1,13 +1,13 @@
 class Newspaper:
     def __init__(self, __name, year, month, day_of_month, is_finnish):
-        self.name = __name
+        self.__name = __name
         self.year = year
         self.month = month
         self.day_of_month = day_of_month
         self.is_finnish = is_finnish
 
     def get_name(self):
-        return self.name
+        return self.__name
 
     def __str__(self):
         return "\n".join([f"{"finnish" if self.is_finnish else "bad"} newspaper {self.name}",
@@ -20,10 +20,12 @@ options = [Newspaper("HS", 1917, 6, 12, True),
            Newspaper("The Guardian", 2026, 11, 3, False),
            Newspaper("IS", 2026, 11, 3, True)]
 
+# print(options[0].__name)
+
 today = (3, 11, 2026)
 
 # get finnish newspaper names that were published today
-news = [n.name for n in options
+news = [n.get_name() for n in options
         if (n.is_finnish and (n.day_of_month, n.month, n.year) == today)]
 
 print(", ".join(news))
