@@ -9,12 +9,11 @@ class Product:
 
 # extends product class
 class Laptop(Product):
-    def __init__(self, model, price):
-        super().__init__(model, price)
+    # inherits Product's functions
+    pass
 
 class Router(Product):
-    def __init__(self, model, price):
-        super().__init__(model, price)
+    pass
 
 class Order:
     def __init__(self):
